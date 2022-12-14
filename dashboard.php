@@ -79,6 +79,10 @@ include "layout/head.php";
                                                 <div class="mt-3">
                                                     <p><?php echo $examination['total_number_of_question'] ?> Questions</p>
                                                     <p><?php echo $examination['duration'];
+                                                        if(!isset($_SESSION['start_time'])) {
+                                                            $_SESSION['start_time'] = date("Y-m-d H:i:s");
+                                                        }
+                                                        
                                                         ?> Minutes</p>
                                                         <input type="hidden" name="examination_id" value="<?php echo $examination['id']; ?>">
                                                         <input type="hidden" name="subject" value="<?php echo $examination['subject']; ?>">

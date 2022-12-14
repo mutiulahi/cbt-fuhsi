@@ -412,6 +412,7 @@ include "layout/head.php";
     <!--End of Tawk.to Script-->
 
     <script>
+        
         // get php variable 
         var time = "<?php echo $_GET['time']; ?>";
         // Set the date we're counting down to be 2 minutes from now
