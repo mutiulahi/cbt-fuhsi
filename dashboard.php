@@ -78,10 +78,8 @@ include "layout/head.php";
                                                 <h5 class="card-title mb-3"><?php echo $examination['subject']; ?></h5>
                                                 <div class="mt-3">
                                                     <p><?php echo $examination['total_number_of_question'] ?> Questions</p>
-                                                    <p><?php //echo $examination['duration'] 
+                                                    <p><?php echo $examination['duration'];
                                                         ?> Minutes</p>
-                                                    <!-- send form to examination page -->
-                                                    <!-- <form action="examination.php" method="post"> -->
                                                         <input type="hidden" name="examination_id" value="<?php echo $examination['id']; ?>">
                                                         <input type="hidden" name="subject" value="<?php echo $examination['subject']; ?>">
                                                         <?php
@@ -89,10 +87,9 @@ include "layout/head.php";
                                                             echo '<button type="button" disabled class="btn btn-primary mt-5">Submitted</button> ';
                                                         } else {
                                                         ?>
-                                                            <a href="examination.php?exam=<?php echo $examination['total_number_of_question']; ?>&id=<?php echo $examination['id']; ?>" type="submit" name="start_exam" class="btn btn-primary mt-5">Start Examination</a>
+                                                            <a href="examination.php?exam=<?php echo $examination['total_number_of_question']; ?>&id=<?php echo $examination['id']; ?>&time=<?php echo $examination['duration']; ?>" target="_blank" type="submit" name="start_exam" class="btn btn-primary mt-5">Start Examination</a>
                                                         <?php
                                                         } ?>
-                                                    <!-- </form> -->
                                                 </div>
                                             </div>
                                         </div>

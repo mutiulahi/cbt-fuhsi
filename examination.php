@@ -19,6 +19,7 @@ include "layout/head.php";
         user-select: none;
         /* color: #cc0000; */
     }
+
     /* Style the form */
     #regForm {
         background-color: #ffffff;
@@ -85,11 +86,10 @@ include "layout/head.php";
                         <div class="page-title-box d-flex align-items-center justify-content-between">
                             <h4 class="mb-0">Questions</h4>
 
-                            <div class="page-title-right">
+                            <div class="page-title">
                                 <span class="breadcrumb-item active">Time Left:</span>
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item active">5</li>
-                                    <li class="breadcrumb-item active">5</li>
+                                    <span style="color:#fff;" id="demo"></span>
                                 </ol>
                             </div>
 
@@ -117,11 +117,11 @@ include "layout/head.php";
                 <div class="container-fluid">
 
                     <div class="row">
-                        <div class="col-xl-12">
-                        <button type="button" class="btn btn-danger">Intelligence Area</button>
-                        <p style="background-color:#A2AAB6;">gsgs</p>
-                            <video id="video" width="320" height="240" autoplay></video>
-                            
+                        <div class="col-xl-12 mb-3 mt-3">
+                            <button type="button" class="btn btn-danger">Intelligence Area</button>
+                            <p style="background-color:#A2AAB6;">gsgs</p>
+                            <center><video id="video" width="320" height="240" autoplay></video></center>
+
                         </div>
                         <form id="regForm" method="POST" action="controller/SubmitionController.php">
                             <?php
@@ -201,14 +201,12 @@ include "layout/head.php";
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary" name="submit_exam">Submit</button>
+                                                <button type="submit" id="submit" class="btn btn-primary" name="submit_exam">Submit</button>
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
                                 <!-- end confirmation modal -->
-
-                                <!-- Circles which indicates the steps of the form: -->
                                 <div style="text-align:center;margin-top:40px;">
                                     <?php for ($i = 1; $i < $size; $i++) {
                                         echo '<span class="step">' . $i . '</span>';
@@ -398,18 +396,53 @@ include "layout/head.php";
     </script>
 
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/63999707b0d6371309d45ae9/1gk7vbu91';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/63999707b0d6371309d45ae9/1gk7vbu91';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script>
+        // get php variable 
+        var time = "<?php echo $_GET['time']; ?>";
+        // Set the date we're counting down to be 2 minutes from now
+        var countDownDate = new Date().getTime() + 60000 * time;
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, submit the form
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+                document.getElementById("submit").click(); 
+            }
+        }, 1000);
+    </script>
 
 </body>
 

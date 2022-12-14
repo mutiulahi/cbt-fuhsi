@@ -62,7 +62,7 @@ include "layout/head.php";
                                                 ?>
                                                 <h5 class="mb-0">Welcome to FUHSI</h5>
                                                 <p class="text-muted mt-2">Sign in to continue the Test.</p>
-                                                <p style="color:red;"><b>Only one session is allowed. Sign in only when you are ready to take exam. You are warned</b></p>
+                                                <p style="color:red;" id="blink"><b>Only one session is allowed. Sign in only when you are ready to take exam. You are warned</b></p>
                                             </div>
                                             <form class="mt-4 pt-2" action="includes/login_code.php" method="POST">
                                                 <div class="form-floating form-floating-custom mb-3">
@@ -118,7 +118,15 @@ include "layout/head.php";
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/pass-addon.init.js"></script>
-
+    <script type="text/javascript">
+        var blink = 
+            document.getElementById('blink');
+  
+        setInterval(function () {
+            blink.style.opacity = 
+            (blink.style.opacity == 0 ? 1 : 0);
+        }, 1000); 
+    </script>
 
 </body>
 

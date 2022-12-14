@@ -16,4 +16,3 @@ else{
     $email = $row['email'];
     $phone = $row['phone'];
 }
-?>
