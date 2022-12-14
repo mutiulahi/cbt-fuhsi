@@ -61,6 +61,7 @@ include "layout/head.php";
                                         <p class="font-size-15"><b>Jamb Registration Number:</b> <?php echo $user_id; ?></p>
                                         <p class="font-size-15"><b>Email:</b> <?php echo $email; ?></p>
                                         <p class="font-size-15"><b>Phone:</b> <?php echo $phone; ?></p>
+                                        <marquee scrollamount="20"> <p style="color:red"> WARNING: This is a sensitive zone, be cautious. By clicking the START EXAMINATION, the system detects EVENTS e.g number of tabs opening, your clicks, sounds, video etc. When prompted to use video, kindly allow your PC to use cam, else you get an invalid submission.</p></marquee>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +86,7 @@ include "layout/head.php";
                                                         <input type="hidden" name="subject" value="<?php echo $examination['subject']; ?>">
                                                         <?php
                                                         if (IsSubmited($user_id, $examination['id']) == 1) {
-                                                            echo '<button type="button" disabled class="btn btn-primary mt-5">Submited</button> ';
+                                                            echo '<button type="button" disabled class="btn btn-primary mt-5">Submitted</button> ';
                                                         } else {
                                                         ?>
                                                             <a href="examination.php?exam=<?php echo $examination['total_number_of_question']; ?>&id=<?php echo $examination['id']; ?>" type="submit" name="start_exam" class="btn btn-primary mt-5">Start Examination</a>
@@ -115,11 +116,11 @@ include "layout/head.php";
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> &copy; Vuesy.
+                            </script> &copy; CBT Federal University of Health Sciences Ila Orangun.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://1.envato.market/themesdesign" target="_blank">Themesdesign</a>
+                                Developed By <i class="mdi mdi-heart text-danger"></i> by <a href="#" target="_blank">Lead Technologies Limited</a>
                             </div>
                         </div>
                     </div>

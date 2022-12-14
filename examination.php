@@ -118,7 +118,10 @@ include "layout/head.php";
 
                     <div class="row">
                         <div class="col-xl-12">
+                        <button type="button" class="btn btn-danger">Intelligence Area</button>
+                        <p style="background-color:#A2AAB6;">gsgs</p>
                             <video id="video" width="320" height="240" autoplay></video>
+                            
                         </div>
                         <form id="regForm" method="POST" action="controller/SubmitionController.php">
                             <?php

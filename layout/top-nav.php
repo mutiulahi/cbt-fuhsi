@@ -3,7 +3,7 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-                        <a href="index.html" class="logo logo-dark">
+                        <a href="/dashboard.php" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="assets/images/logo.png" alt="" height="26">
                             </span>

@@ -14,7 +14,7 @@ include "layout/head.php";
                     <div class="d-flex flex-column h-100 py-5 px-4">
                         <div class="text-center text-muted mb-2">
                             <div class="pb-3">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <span class="logo-lg">
                                         <img src="assets/images/logo.png" alt="" height="24"> <span class="logo-txt">Login</span>
                                     </span>
@@ -32,7 +32,7 @@ include "layout/head.php";
                         <div class="mt-4 mt-md-5 text-center">
                             <p class="mb-0">© <script>
                                     document.write(new Date().getFullYear())
-                                </script> CTB. Federal University of Health Science Ila-orangun (FUHSI) </p>
+                                </script> CBT. Federal University of Health Sciences Ila-orangun (FUHSI) </p>
                         </div>
                     </div>
 
@@ -62,6 +62,7 @@ include "layout/head.php";
                                                 ?>
                                                 <h5 class="mb-0">Welcome to FUHSI</h5>
                                                 <p class="text-muted mt-2">Sign in to continue the Test.</p>
+                                                <p style="color:red;"><b>Only one session is allowed. Sign in only when you are ready to take exam. You are warned</b></p>
                                             </div>
                                             <form class="mt-4 pt-2" action="includes/login_code.php" method="POST">
                                                 <div class="form-floating form-floating-custom mb-3">
