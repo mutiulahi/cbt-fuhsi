@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 04:01 AM
+-- Generation Time: Dec 14, 2022 at 08:47 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -38,8 +38,7 @@ CREATE TABLE `check_subject` (
 --
 
 INSERT INTO `check_subject` (`id`, `user_id`, `examination_id`) VALUES
-(1, '2022101HB', 1),
-(2, '2022101HB', 2);
+(4, '2022101HB', 1);
 
 -- --------------------------------------------------------
 
@@ -78,18 +77,19 @@ CREATE TABLE `examinations` (
   `total_number_of_question` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `access` int(11) NOT NULL DEFAULT 1,
-  `session` varchar(250) NOT NULL
+  `session` varchar(250) NOT NULL,
+  `duration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `examinations`
 --
 
-INSERT INTO `examinations` (`id`, `subject`, `total_number_of_question`, `status`, `access`, `session`) VALUES
-(1, 'Biology', '20', 1, 1, '2022/2023'),
-(2, 'Chemistry', '20', 1, 1, '2022/22023'),
-(3, 'English', '10', 1, 1, '2022/2023'),
-(4, 'Physics', '10', 1, 1, '2022/2023');
+INSERT INTO `examinations` (`id`, `subject`, `total_number_of_question`, `status`, `access`, `session`, `duration`) VALUES
+(1, 'Biology', '20', 1, 1, '2022/2023', 20),
+(2, 'Chemistry', '20', 1, 1, '2022/22023', 20),
+(3, 'English', '10', 1, 1, '2022/2023', 10),
+(4, 'Physics', '10', 1, 1, '2022/2023', 10);
 
 -- --------------------------------------------------------
 
@@ -177,12 +177,8 @@ CREATE TABLE `students_answers` (
 --
 
 INSERT INTO `students_answers` (`id`, `user_id`, `question_id`, `option_id`, `examination_id`) VALUES
-(1, '2022101HB', 3, 11, 1),
-(2, '2022101HB', 2, 5, 1),
-(3, '2022101HB', 1, 1, 1),
-(4, '2022101HB', 5, 19, 2),
-(5, '2022101HB', 4, 13, 2),
-(6, '2022101HB', 6, 24, 2);
+(8, '2022101HB', 3, 11, 1),
+(9, '2022101HB', 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -207,7 +203,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `jamb`, `email`, `phone`, `login_at`, `logout_at`, `is_login`, `role`) VALUES
-(1, 'Mutiulahi Tesleem', '2022101HB', 'tescode@gmail.com', '07067526407', '', '', 0, 0),
+(1, 'Mutiulahi Tesleem', '2022101HB', 'tescode@gmail.com', '07067526407', '2022-12-14 20:39:04', '', 1, 0),
 (2, 'Admin', 'admin123', 'admin@gmail.com', '09078787878', NULL, NULL, 0, 2);
 
 --
@@ -264,7 +260,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `check_subject`
 --
 ALTER TABLE `check_subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `correct_options`
@@ -294,7 +290,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `students_answers`
 --
 ALTER TABLE `students_answers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
