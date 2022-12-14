@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
         $get_user->execute();
         $result = $get_user->get_result();
         $row_success = $result->fetch_assoc();
-        if ($row['is_login'] == 1) {
+        if ($row_success['is_login'] == 1) {
             header("Location: ../index.php?error=You have been logged out from another device.");
         } else {
             $datatime = date("Y-m-d H:i:s");

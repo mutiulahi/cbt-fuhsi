@@ -2,6 +2,11 @@
 include_once 'includes/database.php';
 include_once('includes/config.php');
 include_once('controller/QuestionController.php');
+$total_minutes = $_GET['time'];
+$time_started = $_SESSION['start_time'];
+$current_time = date("Y-m-d H:i:s");
+$time_left =  strtotime($time_started) - strtotime($current_time) ;
+$time_left = ($total_minutes - $time_left)/60;
 ?>
 <!doctype html>
 <html lang="en">
@@ -414,7 +419,7 @@ include "layout/head.php";
     <script>
         
         // get php variable 
-        var time = "<?php echo $_GET['time']; ?>";
+        var time = "<?php echo $_GET['time'] - $time_left; ?>";
         // Set the date we're counting down to be 2 minutes from now
         var countDownDate = new Date().getTime() + 60000 * time;
 
