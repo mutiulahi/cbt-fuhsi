@@ -59,11 +59,14 @@ if (isset($_POST['upload_question'])) {
         $question_to_db = $question[$i];
         $options = array($optionA[$i], $optionB[$i], $optionC[$i], $optionD[$i]);
         $correct_answer = $correct_answers[$i];
+        $question_to_db = mysqli_real_escape_string($dbconnect, $question_to_db);
+        $correct_answer = mysqli_real_escape_string($dbconnect, $correct_answer);
         $insert_question = "INSERT INTO questions (examination_id, question) VALUES ('$examination_id', '$question_to_db')";
         $insert_question = mysqli_query($dbconnect, $insert_question);
         $question_id = mysqli_insert_id($dbconnect);
         // loop through options
         foreach ($options as $option) {
+            $option = mysqli_real_escape_string($dbconnect, $option);
             $insert_option = "INSERT INTO options (examination_id, question_id, question_option) VALUES ('$examination_id','$question_id', '$option')";
             $insert_option = mysqli_query($dbconnect, $insert_option);
         }

@@ -417,7 +417,10 @@ include "layout/head.php";
 
     <script>
         // get php variable 
-        var time = "<?php echo 3600000 - $time_left; ?>";
+        // get 60 minutes 
+
+        var time = "<?php echo 60 - $time_left; ?>";
+        
         // Set the date we're counting down to be 2 minutes from now
         var countDownDate = new Date().getTime() + 60000 * time;
 
