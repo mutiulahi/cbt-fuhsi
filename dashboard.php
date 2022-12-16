@@ -61,7 +61,7 @@ include "layout/head.php";
                                         <p class="font-size-15"><b>Jamb Registration Number:</b> <?php echo $user_id; ?></p>
                                         <p class="font-size-15"><b>Email:</b> <?php echo $email; ?></p>
                                         <p class="font-size-15"><b>Phone:</b> <?php echo $phone; ?></p>
-                                        <marquee scrollamount="20"> <p style="color:red"> WARNING: This is a sensitive zone, be cautious. By clicking the START EXAMINATION, the system detects EVENTS e.g number of tabs opening, your clicks, sounds, video etc. When prompted to use video, kindly allow your PC to use cam, else you get an invalid submission.</p></marquee>
+                                        <marquee scrollamount="5"> <p style="color:red"> WARNING: This is a sensitive zone, be cautious. By clicking the START EXAMINATION, the system detects EVENTS e.g number of tabs opening, your clicks, sounds, video etc. When prompted to use video, kindly allow your PC to use cam, else you get an invalid submission.</p></marquee>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,6 @@ include "layout/head.php";
                                                         if(!isset($_SESSION['start_time'])) {
                                                             $_SESSION['start_time'] = date("Y-m-d H:i:s");
                                                         }
-                                                        
                                                         ?> Minutes</p>
                                                         <input type="hidden" name="examination_id" value="<?php echo $examination['id']; ?>">
                                                         <input type="hidden" name="subject" value="<?php echo $examination['subject']; ?>">

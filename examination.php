@@ -2,11 +2,11 @@
 include_once 'includes/database.php';
 include_once('includes/config.php');
 include_once('controller/QuestionController.php');
-$total_minutes = $_GET['time'];
+$total_minutes = 60;
 $time_started = $_SESSION['start_time'];
 $current_time = date("Y-m-d H:i:s");
-$time_left =  strtotime($time_started) - strtotime($current_time) ;
-$time_left = ($total_minutes - $time_left)/60;
+$time_left =  strtotime($time_started) - strtotime($current_time);
+$time_left = ($total_minutes - $time_left) / 60;
 ?>
 <!doctype html>
 <html lang="en">
@@ -107,12 +107,6 @@ include "layout/head.php";
 
         </header>
         <div class="hori-overlay"></div>
-        <!-- <button id="start-camera">Start Camera</button> -->
-        <!-- <button id="start-record">Start Recording</button> -->
-        <!-- <button id="stop-record">Stop Recording</button> -->
-        <!-- <a id="download-video" download="test.webm">Download Video</a> -->
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -123,9 +117,14 @@ include "layout/head.php";
 
                     <div class="row">
                         <div class="col-xl-12 mb-3 mt-3">
-                            <button type="button" class="btn btn-danger">Intelligence Area</button>
-                            <p style="background-color:#A2AAB6;">gsgs</p>
-                            <center><video id="video" width="320" height="240" autoplay></video></center>
+                            <!-- <button type="button" class="btn btn-danger">Intelligence Area</button> -->
+
+
+                            <center><video id="video" width="320" height="240" autoplay></video><br><br>
+                                <div id="texto" class="header_title">
+                                    <p style="color:red;">AI video capturing started</p>
+                                </div>
+                            </center><br>
 
                         </div>
                         <form id="regForm" method="POST" action="controller/SubmitionController.php">
@@ -148,7 +147,7 @@ include "layout/head.php";
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="">
-                                                        <h6 class="text-muted text-black" style="font-weight: 900;">
+                                                        <h6 class="text-muted text-black" style="color:#000000;">
                                                             <?php echo $question['question']; ?>
                                                         </h6>
                                                     </div>
@@ -417,9 +416,8 @@ include "layout/head.php";
     <!--End of Tawk.to Script-->
 
     <script>
-        
         // get php variable 
-        var time = "<?php echo $_GET['time'] - $time_left; ?>";
+        var time = "<?php echo 3600000 - $time_left; ?>";
         // Set the date we're counting down to be 2 minutes from now
         var countDownDate = new Date().getTime() + 60000 * time;
 
@@ -445,9 +443,33 @@ include "layout/head.php";
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("demo").innerHTML = "EXPIRED";
-                document.getElementById("submit").click(); 
+                document.getElementById("submit").click();
             }
         }, 1000);
+    </script>
+
+    <script>
+        $(function() {
+            $("#texto").hide();
+        });
+
+        var i = 0;
+        // warning array 
+        var warning = ['...detecting login record (fetching result)',
+            '...recording number of tabs (fetching results)',
+            '...comparing image AI on video (submitting results)',
+            '....zigzag (parallel periodic array-submission'
+        ]
+        setInterval(function() {
+            $("#texto").fadeIn(2000).delay(5000);
+            $("#texto").fadeOut(2000, function() {
+                $("#texto").html("<p style='color:red'>" + warning[i] + "</p>");
+                i++;
+            });
+            if (i == warning.length) {
+                i = 0;
+            }
+        }, 2000);
     </script>
 
 </body>

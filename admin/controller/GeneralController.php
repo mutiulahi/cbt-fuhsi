@@ -29,6 +29,13 @@ if (isset($_POST['upload_question'])) {
     $examination_id = $_POST['examination_id'];
     $file = $_FILES['file']['name'];
     $file_loc = $_FILES['file']['tmp_name'];
+    // check if file is excel file
+    $file_ext = pathinfo($file, PATHINFO_EXTENSION);
+    if ($file_ext != "xlsx") {
+        header("Location: ../upload-question.php?type=error&msg=File must be excel file");
+        exit();
+    }
+
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file_loc);
     $sheetData = $spreadsheet->getActiveSheet()->toArray();
 
