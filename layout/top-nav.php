@@ -5,19 +5,19 @@
                     <div class="navbar-brand-box">
                         <a href="/dashboard.php" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="assets/images/logo.png" alt="" height="26">
+                                <img src="assets/images/logo.png" alt="" height="60" >
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="" height="26"> <span class="logo-txt">CBT FUHSI</span>
+                                <img src="assets/images/logo.png" alt="" height="60" > <span class="logo-txt">CBT FUHSI</span>
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="assets/images/logo.png" alt="" height="26">
+                                <img src="assets/images/logo.png" alt="" height="60" >
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="" height="26"> <span class="logo-txt">CBT FUHSI</span>
+                                <img src="assets/images/logo.png" alt="" height="60" > <span class="logo-txt">CBT FUHSI</span>
                             </span>
                         </a>
                     </div>
