@@ -2,6 +2,7 @@
 session_start();
 include '../includes/database.php';
 include 'islogin.php';
+include 'controller/ResultController.php';
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -84,16 +85,27 @@ include 'islogin.php';
                                                 <th>S/NO</th>
                                                 <th>Name</th>
                                                 <th>Jamb Registration</th>
-                                                <th>Result</th>
+                                                <th>Total Questions Attempt</th>
+                                                <th>Total Score</th>
+                                                <th>Total Questions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Unity Butler</td>
-                                                <td>Marketing Designer</td>
-                                                <td>San Francisco</td>
-                                                <td>47</td>
-                                            </tr>
+                                            <?php
+                                            $countter = 1;
+                                                foreach (Result() as  $value) {
+                                                    ?>
+                                                    <tr>
+                                                            <td><?php echo $countter++; ?></td>
+                                                            <td><?php echo $value[0]; ?></td>
+                                                            <td><?php echo $value[1]; ?></td>
+                                                            <td><b><?php echo $value[2]; ?> </b> Questions</td>
+                                                            <td><b><?php echo $value[3]; ?> </b> Marks</td>
+                                                            <td><b><?php echo $value[4]; ?> </b> Questions</td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
