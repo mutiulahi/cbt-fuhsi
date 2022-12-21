@@ -77,6 +77,11 @@ include 'controller/ResultController.php';
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">Student Result</h5>
+                                    <p>Total Number of Student that have submited is: 
+                                        <?php
+                                        $result = Result();
+                                        echo $result[0][5];               
+                                        ?> </p>
                                 </div>
                                 <div class="card-body">
                                     <table id="buttons-datatables" class="display table table-bordered" style="width:100%">
@@ -99,7 +104,13 @@ include 'controller/ResultController.php';
                                                             <td><?php echo $countter++; ?></td>
                                                             <td><?php echo $value[0]; ?></td>
                                                             <td><?php echo $value[1]; ?></td>
-                                                            <td><b><?php echo $value[2]; ?> </b> Questions</td>
+                                                            <td><b><?php 
+                                                            if ($value[2] > 60) {
+                                                               echo 60;
+                                                            }else{
+                                                                echo $value[2];
+                                                            }
+                                                            ?> </b> Questions</td>
                                                             <td><b><?php echo $value[3]; ?> </b> Marks</td>
                                                             <td><b><?php echo $value[4]; ?> </b> Questions</td>
                                                     </tr>

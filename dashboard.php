@@ -29,10 +29,12 @@ include "layout/head.php";
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <a href="https://tawk.to/fushsi" target="new"><li class="breadcrumb-item active">Live Chat</li></a>
+                                    <a href="https://tawk.to/fushsi" target="new">
+                                        <li class="breadcrumb-item active">Live Chat</li>
+                                    </a>
                                 </ol>
                             </div>
-                            
+
 
                         </div>
                     </div>
@@ -62,7 +64,9 @@ include "layout/head.php";
                                         <p class="font-size-15"><b>Jamb Registration Number:</b> <?php echo $user_id; ?></p>
                                         <p class="font-size-15"><b>Email:</b> <?php echo $email; ?></p>
                                         <p class="font-size-15"><b>Phone:</b> <?php echo $phone; ?></p>
-                                        <marquee scrollamount="5"> <p style="color:red"> WARNING: This is a sensitive zone, be cautious. By clicking the START EXAMINATION, the system detects EVENTS e.g number of tabs opening, your clicks, sounds, video etc. When prompted to use video, kindly allow your PC to use cam, else you get an invalid submission.</p></marquee>
+                                        <marquee scrollamount="5">
+                                            <p style="color:red"> WARNING: This is a sensitive zone, be cautious. By clicking the START EXAMINATION, the system detects EVENTS e.g number of tabs opening, your clicks, sounds, video etc. When prompted to use video, kindly allow your PC to use cam, else you get an invalid submission.</p>
+                                        </marquee>
                                     </div>
                                 </div>
                             </div>
@@ -80,20 +84,20 @@ include "layout/head.php";
                                                 <div class="mt-3">
                                                     <p><?php echo $examination['total_number_of_question'] ?> Questions</p>
                                                     <p><?php echo $examination['duration'];
-                                                        if(!isset($_SESSION['start_time'])) {
+                                                        if (!isset($_SESSION['start_time'])) {
                                                             $_SESSION['start_time'] = date("Y-m-d H:i:s");
                                                         }
                                                         ?> Minutes</p>
-                                                        <input type="hidden" name="examination_id" value="<?php echo $examination['id']; ?>">
-                                                        <input type="hidden" name="subject" value="<?php echo $examination['subject']; ?>">
-                                                        <?php
-                                                        if (IsSubmited($user_id, $examination['id']) == 1) {
-                                                            echo '<button type="button" disabled class="btn btn-primary mt-5">Submitted</button> ';
-                                                        } else {
-                                                        ?>
-                                                            <a href="examination.php?exam=<?php echo $examination['total_number_of_question']; ?>&id=<?php echo $examination['id']; ?>&time=<?php echo $examination['duration']; ?>" target="_blank" type="submit" name="start_exam" class="btn btn-primary mt-5">Start Examination</a>
-                                                        <?php
-                                                        } ?>
+                                                    <input type="hidden" name="examination_id" value="<?php echo $examination['id']; ?>">
+                                                    <input type="hidden" name="subject" value="<?php echo $examination['subject']; ?>">
+                                                    <?php
+                                                    if (IsSubmited($user_id, $examination['id']) == 1) {
+                                                        echo '<button type="button" disabled class="btn btn-primary mt-5">Submitted</button> ';
+                                                    } else {
+                                                    ?>
+                                                        <a href="examination.php?exam=<?php echo $examination['total_number_of_question']; ?>&id=<?php echo $examination['id']; ?>&time=<?php echo $examination['duration']; ?>" type="submit" name="start_exam" class="btn btn-primary mt-5">Start Examination</a>
+                                                    <?php
+                                                    } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,7 +152,39 @@ include "layout/head.php";
     <script src="assets/js/pages/profile.init.js"></script>
     <!-- app js -->
     <script src="assets/js/app.js"></script>
-   
+
+    <script>
+        $("body").on("click", "a[data-href]", function() {
+            var href = $(this).data("href");
+            if (href) {
+                location.href = href;
+            }
+        });
+    </script>
+    <script>
+        // avoid right click on page and inspect element 
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey &&
+                (e.keyCode === 67 ||
+                    e.keyCode === 86 ||
+                    e.keyCode === 85 ||
+                    e.keyCode === 117)) {
+                alert('not allowed');
+                return false;
+            } else {
+                return true;
+            }
+        });
+    </script>
+    <script>
+        // avoid opening new tab 
+        window.onbeforeunload = function() {
+            return "Dude, are you sure you want to leave? Think of the kittens!";
+        };
+        
+    </script>
+
 
 </body>
 

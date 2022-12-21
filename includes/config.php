@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php?error=You have no access to this page please kindly login.");
+    header("Location: ../index.php?error=You have no access to this page please kindly login.");
 }
 else{
     $user_id = $_SESSION['user_id'];
@@ -15,4 +15,5 @@ else{
     $name = $row['name'];
     $email = $row['email'];
     $phone = $row['phone'];
+    $image = $row['image'];
 }

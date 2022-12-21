@@ -92,10 +92,10 @@ include "layout/head.php";
                             <h4 class="mb-0">Questions</h4>
 
                             <div class="page-title">
-                                <span class="breadcrumb-item active">Time Left:</span>
+                                <!-- <span class="breadcrumb-item active">Time Left:</span>
                                 <ol class="breadcrumb m-0">
                                     <span style="color:#fff;" id="demo"></span>
-                                </ol>
+                                </ol> -->
                             </div>
 
                         </div>
@@ -115,18 +115,33 @@ include "layout/head.php";
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <div class="row">
-                        <div class="col-xl-12 mb-3 mt-3">
-                            <!-- <button type="button" class="btn btn-danger">Intelligence Area</button> -->
-
-
-                            <center><video id="video" width="320" height="240" autoplay></video><br><br>
-                                <div id="texto" class="header_title">
-                                    <p style="color:red;">AI video capturing started</p>
-                                </div>
-                            </center><br>
-
+                    <div class="row col-md-12" style="justify-content: center;">
+                        <div class="col-md-5">
+                            <video id="video" width="100%" height="240" autoplay></video>
                         </div>
+                        <br><br>
+                        <div class="col-md-5">
+                            <?php
+                            if (file_exists("assets/images/profile_image/" . $image)) {
+                                echo "<img id='photo_display' src='assets/images/profile_image/" . $image . "' width='100%' height='240' alt='Photo'>";
+                                $display_image = "<img id='photo_display' src='assets/images/profile_image/" . $image . "' width='100%' height='240' alt='Photo'>";
+                            } else {
+                                echo "<img id='photo_display' src='assets/images/profile_image/all-avatar.png' width='100%' height='240' alt='Photo'>";
+                                $display_image = "<img id='photo_display' src='assets/images/profile_image/all-avatar.png' width='100%' height='240' alt='Photo'>";
+                            }
+                            ?>
+                        </div>
+                        <br><br>
+                        <div class="col-md-12">
+                            <div id="texto" class="header_title">
+                                <p style="color:red; text-align:center;">AI video capturing started</p>
+                            </div>
+                            <br>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
                         <form id="regForm" method="POST" action="controller/SubmitionController.php">
                             <?php
                             if (isset($_GET['exam'])) {
@@ -147,9 +162,9 @@ include "layout/head.php";
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="">
-                                                        <h6 class="text-muted text-black" style="color:#000000;">
+                                                        <p class="text-muted text-black" style="color:black;">
                                                             <?php echo $question['question']; ?>
-                                                        </h6>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -399,14 +414,14 @@ include "layout/head.php";
         });
     </script>
 
-    
+
 
     <script>
         // get php variable 
         // get 60 minutes 
 
         var time = "<?php echo 60 - $time_left; ?>";
-        
+
         // Set the date we're counting down to be 2 minutes from now
         var countDownDate = new Date().getTime() + 60000 * time;
 
@@ -431,8 +446,8 @@ include "layout/head.php";
             // If the count down is finished, submit the form
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-                document.getElementById("submit").click();
+                // document.getElementById("demo").innerHTML = "EXPIRED";
+                // document.getElementById("submit").click();
             }
         }, 1000);
     </script>
@@ -459,6 +474,50 @@ include "layout/head.php";
                 i = 0;
             }
         }, 2000);
+    </script>
+
+    <script>
+        $("body").on("click", "a[data-href]", function() {
+            var href = $(this).data("href");
+            if (href) {
+                location.href = href;
+            }
+        });
+    </script>
+    <script>
+        // avoid right click on page and inspect element 
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey &&
+                (e.keyCode === 67 ||
+                    e.keyCode === 86 ||
+                    e.keyCode === 85 ||
+                    e.keyCode === 117)) {
+                alert('not allowed');
+                return false;
+            } else {
+                return true;
+            }
+        });
+    </script>
+    <script>
+        // avoid opening new tab 
+        window.onbeforeunload = function() {
+            return "Dude, are you sure you want to leave? Think of the kittens!";
+        };
+    </script>
+
+    <script>
+        var photo_display = document.getElementById("photo_display");
+
+        setInterval(function() {
+            photo_display.style.display = "block";
+            photo_display.style.transition = "all 3s ease-in-out";
+
+        }, 3000);
+        setInterval(function() {
+            photo_display.style.display = "none";
+        }, 4000);
     </script>
 
 </body>

@@ -14,6 +14,10 @@ function GetOption($id)
 function Result()
 {
     global $dbconnect;
+    $number_attemted = "SELECT * FROM students_answers INNER JOIN correct_options ON correct_options.question_id = students_answers.question_id";
+    $number_attemted_result = mysqli_query($dbconnect, $number_attemted);
+    $number_attemted_result_row_count = mysqli_num_rows($number_attemted_result);
+
     $users = "SELECT * FROM users WHERE role = 0";
     $users_result = mysqli_query($dbconnect, $users);
     while ($users_result_row = mysqli_fetch_array($users_result)) {
@@ -29,7 +33,7 @@ function Result()
                 $result[] = 1;
             }
         }
-        $respone [] = [$name,$jamb,sizeof($total_question_attempt),sizeof($result),'60'];
+        $respone [] = [$name,$jamb,sizeof($total_question_attempt),sizeof($result),'60',$number_attemted_result_row_count];
     }
 
     return $respone;

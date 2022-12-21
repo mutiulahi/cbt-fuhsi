@@ -61,7 +61,7 @@ include "layout/head.php";
                                                 }
                                                 ?>
                                                 <h5 class="mb-0">Welcome to FUHSI</h5>
-                                                <p class="text-muted mt-2">Sign in to do the Exam.</p>
+                                                <p class="text-muted mt-2">Sign in to continue the Test.</p>
                                                 <p style="color:red;" id="blink"><b>Only one session is allowed. Sign in only when you are ready to take exam. You are warned</b></p>
                                             </div>
                                             <form class="mt-4 pt-2" action="includes/login_code.php" method="POST">
@@ -77,7 +77,7 @@ include "layout/head.php";
                                                     <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
                                                         <i class="fa fa-eye font-size-18 text-muted"></i>
                                                     </button>
-                                                    <label for="password-input">Email Address</label>
+                                                    <label for="password-input">Email</label>
                                                     <div class="form-floating-icon">
                                                         <i class="uil uil-padlock"></i>
                                                     </div>

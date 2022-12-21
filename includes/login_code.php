@@ -19,9 +19,9 @@ if (isset($_POST['login'])) {
         $get_user->execute();
         $result = $get_user->get_result();
         $row_success = $result->fetch_assoc();
-        if ($row_success['is_login'] == 1) {
-            header("Location: ../index.php?error=You have been logged out from another device.");
-        } else {
+        // if ($row_success['is_login'] == 1) {
+        //     header("Location: ../index.php?error=You have been logged out from another device.");
+        // } else {
             $datatime = date("Y-m-d H:i:s");
             $update_user_status = $dbconnect->prepare("UPDATE users SET is_login = 1, login_at = '$datatime' WHERE jamb = ?");
             $update_user_status->bind_param("s", $jamb_registration_number);
@@ -29,6 +29,6 @@ if (isset($_POST['login'])) {
             $row = $result->fetch_assoc();
             $_SESSION['user_id'] = $row_success['jamb']; // user name
             header("Location: ../dashboard.php");
-        }
+        // }
     }
 }
