@@ -85,11 +85,11 @@ include 'controller/ResultController.php';
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Students that  submitted Biology</p>
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Number of submittions</p>
                                         </div> 
                                         <div class="flex-shrink-0">
                                             <h5 class="text-success fs-14 mb-0">
-                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>Biology
+                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>Submittions
                                             </h5>
                                         </div>
                                     </div>
