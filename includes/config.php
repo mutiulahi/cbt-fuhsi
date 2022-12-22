@@ -1,6 +1,7 @@
 <?php
 // session_start();
 // if (!isset($_SESSION['user_id'])) {
+    session_destroy();
     header("Location: ../endsession.php?error=You have no access to this page please kindly login.");
 // }
 // else{
