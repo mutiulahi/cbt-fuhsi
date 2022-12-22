@@ -78,6 +78,148 @@ include 'controller/ResultController.php';
                                 </div><!-- end card body -->
                             </div><!-- end card -->
                         </div><!-- end col -->
+                        <div class="col-xl-6 col-md-12">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Students that submitted English</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <h5 class="text-success fs-14 mb-0">
+                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>English
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <?php
+                                                
+                                                // count total number of students
+                                                $total_number = $dbconnect->query("SELECT COUNT(*) FROM check_subject WHERE examination_id = 3")->fetch_row()[0];
+
+                                        
+                                            ?>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $total_number;?>">0</span> </h4>
+                                            <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-soft-success rounded fs-3">
+                                                <i class="bx bx-user-circle text-success"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                        <div class="col-xl-6 col-md-12">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Students that  submitted Biology</p>
+                                        </div> 
+                                        <div class="flex-shrink-0">
+                                            <h5 class="text-success fs-14 mb-0">
+                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>Biology
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <?php
+                                                
+                                                // count total number of students
+                                                $biology = $dbconnect->query("SELECT COUNT(*) FROM check_subject WHERE examination_id = 1")->fetch_row()[0];
+
+                                        
+                                            ?>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $biology;?>">0</span> </h4>
+                                            <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-soft-success rounded fs-3">
+                                                <i class="bx bx-user-circle text-success"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                        <div class="col-xl-6 col-md-12">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Students that Submitted Chemistry</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <h5 class="text-success fs-14 mb-0">
+                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>Chemistry
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <?php
+                                                
+                                                // count total number of Chemistry
+                                                $chemistry = $dbconnect->query("SELECT COUNT(*) FROM check_subject WHERE examination_id = 2")->fetch_row()[0];
+
+                                        
+                                            ?>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $chemistry;?>">0</span> </h4>
+                                            <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-soft-success rounded fs-3">
+                                                <i class="bx bx-user-circle text-success"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                        <div class="col-xl-6 col-md-12">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Students that Submitted Physics</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <h5 class="text-success fs-14 mb-0">
+                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>Physics
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <?php
+                                                
+                                                // count total number of students
+                                                $physcies = $dbconnect->query("SELECT COUNT(*) FROM check_subject WHERE examination_id = 4")->fetch_row()[0];
+
+                                        
+                                            ?>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $physcies;?>">0</span> </h4>
+                                            <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-soft-success rounded fs-3">
+                                                <i class="bx bx-user-circle text-success"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                        
+
                     </div> <!-- end row-->
 
                 </div> <!-- container-fluid -->
