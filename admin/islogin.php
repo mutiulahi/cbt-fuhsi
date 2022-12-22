@@ -1,4 +1,5 @@
 <?php
+// redirect back 
 if (!isset($_SESSION['auth_id'])) {
     header("Location: index.php?type=error&msg=You have no access to this page please kindly login.");
 }

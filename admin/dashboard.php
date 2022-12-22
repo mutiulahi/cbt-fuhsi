@@ -60,13 +60,13 @@ include 'controller/ResultController.php';
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
                                             <?php
-                                                
-                                                // count total number of students
-                                                $total_number = $dbconnect->query("SELECT COUNT(*) FROM users")->fetch_row()[0];
 
-                                        
+                                            // count total number of students
+                                            $total_number = $dbconnect->query("SELECT COUNT(*) FROM users")->fetch_row()[0];
+
+
                                             ?>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $total_number;?>">0</span> </h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $total_number; ?>">0</span> </h4>
                                             <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
@@ -78,15 +78,14 @@ include 'controller/ResultController.php';
                                 </div><!-- end card body -->
                             </div><!-- end card -->
                         </div><!-- end col -->
-                       
+
                         <div class="col-xl-12 col-md-12">
-                            <!-- card -->
                             <div class="card card-animate">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Number of submittions</p>
-                                        </div> 
+                                        </div>
                                         <div class="flex-shrink-0">
                                             <h5 class="text-success fs-14 mb-0">
                                                 <i class="ri-arrow-right-up-line fs-13 align-middle"></i>Submittions
@@ -96,14 +95,9 @@ include 'controller/ResultController.php';
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
                                             <?php
-                                                
-                                                // count total number of students
                                                 $biology = $dbconnect->query("SELECT COUNT(*) FROM check_subject WHERE examination_id = 1")->fetch_row()[0];
-
-                                        
                                             ?>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $biology;?>">0</span> </h4>
-                                            <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $biology; ?>">0</span> </h4>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-success rounded fs-3">
@@ -114,8 +108,8 @@ include 'controller/ResultController.php';
                                 </div><!-- end card body -->
                             </div><!-- end card -->
                         </div><!-- end col -->
-                        
-                        
+
+
 
                     </div> <!-- end row-->
 
