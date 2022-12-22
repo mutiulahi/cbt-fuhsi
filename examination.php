@@ -93,9 +93,9 @@ include "layout/head.php";
 
                             <div class="page-title">
                                 <span class="breadcrumb-item active">Time Left:</span>
-                                <ol class="breadcrumb m-0">
+                                <!-- <ol class="breadcrumb m-0">
                                     <span style="color:#fff;" id="demo"></span>
-                                </ol>
+                                </ol> -->
                             </div>
 
                         </div>
@@ -446,8 +446,8 @@ include "layout/head.php";
             // If the count down is finished, submit the form
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-                document.getElementById("submit").click();
+                // document.getElementById("demo").innerHTML = "EXPIRED";
+                // document.getElementById("submit").click();
             }
         }, 1000);
     </script>
