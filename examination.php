@@ -92,7 +92,7 @@ include "layout/head.php";
                             <h4 class="mb-0">Questions</h4>
 
                             <div class="page-title">
-                                <span class="breadcrumb-item active">Time Left:</span>
+                                <!-- <span class="breadcrumb-item active">Time Left:</span> -->
                                 <!-- <ol class="breadcrumb m-0">
                                     <span style="color:#fff;" id="demo"></span>
                                 </ol> -->
