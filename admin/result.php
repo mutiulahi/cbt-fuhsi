@@ -79,7 +79,16 @@ include 'controller/ResultController.php';
                                     <h5 class="card-title mb-0">Student Result</h5>
                                     <p>Total Number of Student that have submited is: 
                                         <?php
-                                        $result = Result();             
+                                    //    if (!isset ($_GET['page']) ) {  
+
+                                    //     $page_number = 1;  
+                                
+                                    // } else {  
+                                
+                                    //     $page_number = $_GET['page'];  
+                                
+                                    // } 
+                                    //     $result = ResultPagination(0, 100);             
                                         ?> </p>
                                 </div>
                                 <div class="card-body">
@@ -97,7 +106,7 @@ include 'controller/ResultController.php';
                                         <tbody>
                                             <?php
                                             $countter = 1;
-                                                foreach (Result() as  $value) {
+                                                foreach (ResultPagination(0, 1000) as  $value) {
                                                     ?>
                                                     <tr>
                                                             <td><?php echo $countter++; ?></td>

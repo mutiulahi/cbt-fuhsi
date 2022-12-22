@@ -32,6 +32,9 @@ include "layout/head.php";
                                     <a href="https://tawk.to/fushsi" target="new">
                                         <li class="breadcrumb-item active">Live Chat</li>
                                     </a>
+                                    <span>
+                                        <a href="tel:+2347035373028">+2347035373028</a>
+                                    </span>
                                 </ol>
                             </div>
 
