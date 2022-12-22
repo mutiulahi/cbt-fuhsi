@@ -68,7 +68,6 @@ include 'controller/ResultController.php';
                                                 $result = Result();
                                         
                                             ?>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $total_number;?>">0</span> </h4>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php  echo $result[0][5];?>">0</span> </h4>
                                             <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
                                         </div>
