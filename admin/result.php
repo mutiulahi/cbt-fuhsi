@@ -79,8 +79,7 @@ include 'controller/ResultController.php';
                                     <h5 class="card-title mb-0">Student Result</h5>
                                     <p>Total Number of Student that have submited is: 
                                         <?php
-                                        $result = Result();
-                                        echo $result[0][5];               
+                                        $result = Result();             
                                         ?> </p>
                                 </div>
                                 <div class="card-body">

@@ -61,14 +61,12 @@ include 'controller/ResultController.php';
                                         <div>
                                             <?php
                                                 
-                                                $total_user = "SELECT * FROM users where role != '2'";
-                                                $total_user_result = mysqli_query($dbconnect, $total_user);
-                                                $total_number = mysqli_num_rows($total_user_result);
+                                                // count total number of students
+                                                $total_number = $dbconnect->query("SELECT COUNT(*) FROM users")->fetch_row()[0];
 
-                                                $result = Result();
                                         
                                             ?>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php  echo $result[0][5];?>">0</span> </h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $total_number;?>">0</span> </h4>
                                             <!-- <a href="#" class="text-decoration-underline">View net earnings</a> -->
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
