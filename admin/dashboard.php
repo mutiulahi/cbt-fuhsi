@@ -62,7 +62,7 @@ include 'controller/ResultController.php';
                                             <?php
 
                                             // count total number of students
-                                            $total_number = $dbconnect->query("SELECT COUNT(*) FROM users")->fetch_row()[0];
+                                            $total_number = $dbconnect->query("SELECT COUNT(*) FROM users LIMIT 0, 100")->fetch_row()[0];
 
 
                                             ?>

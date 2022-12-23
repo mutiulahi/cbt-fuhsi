@@ -106,7 +106,7 @@ include 'controller/ResultController.php';
                                         <tbody>
                                             <?php
                                             $countter = 1;
-                                                foreach (ResultPagination(0, 1000) as  $value) {
+                                                foreach (ResultPagination() as  $value) {
                                                     ?>
                                                     <tr>
                                                             <td><?php echo $countter++; ?></td>
