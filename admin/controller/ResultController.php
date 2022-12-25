@@ -49,18 +49,18 @@ function GetOption($id)
 // }
 
 // result function we pagenation 
-function ResultPagination()
+function ResultPagination($start, $end)
 {
     global $dbconnect;
 
-    $users = "SELECT * FROM users WHERE role = 0";
+    $users = "SELECT * FROM users WHERE role = 0 LIMIT $start, $end";
     $users_result = mysqli_query($dbconnect, $users);
     while ($users_result_row = mysqli_fetch_array($users_result)) {
         $name = $users_result_row['name'];
        $jamb = $users_result_row['jamb'];
        $result = array();
        $total_question_attempt = array();
-        $question = "SELECT DISTINCT * FROM students_answers INNER JOIN correct_options ON correct_options.question_id = students_answers.question_id WHERE students_answers.user_id = '$jamb' AND students_answers.examination_id = 1";
+        $question = "SELECT DISTINCT * FROM students_answers INNER JOIN correct_options ON correct_options.question_id = students_answers.question_id WHERE students_answers.user_id = '$jamb' AND students_answers.examination_id = 4";
         $reslt_question = mysqli_query($dbconnect, $question);
         while ($row = mysqli_fetch_array($reslt_question)) {
             $total_question_attempt[] = 1;
@@ -74,12 +74,12 @@ function ResultPagination()
             $total_question_attempt = sizeof($total_question_attempt);
         }
 
-        if(sizeof($result) >60){
-            $result = 60;
+        if(sizeof($result) >10){
+            $result = 10;
         }else{
             $result = sizeof($result);
         }
-        $respone [] = [$name,$jamb,$total_question_attempt,$result,'60'];
+        $respone [] = [$name,$jamb,$total_question_attempt,$result,'10'];
     }
 
     return $respone;

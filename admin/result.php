@@ -98,29 +98,29 @@ include 'controller/ResultController.php';
                                                 <th>S/NO</th>
                                                 <th>Name</th>
                                                 <th>Jamb Registration</th>
-                                                <th>Total Questions Attempt</th>
+                                                <th>Chemistry Score</th>
+                                                <th>English Score</th>
+                                                <th>Physics Score</th>
+                                                <th>Biology Score</th>
                                                 <th>Total Score</th>
-                                                <th>Total Questions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $getresult = "SELECT * FROM result";
+                                            $result = mysqli_query($dbconnect, $getresult);
                                             $countter = 1;
-                                                foreach (ResultPagination() as  $value) {
-                                                    ?>
+                                            while ($row = mysqli_fetch_array($result )) { 
+                                                ?>
                                                     <tr>
                                                             <td><?php echo $countter++; ?></td>
-                                                            <td><?php echo $value[0]; ?></td>
-                                                            <td><?php echo $value[1]; ?></td>
-                                                            <td><b><?php 
-                                                            if ($value[2] > 60) {
-                                                               echo 60;
-                                                            }else{
-                                                                echo $value[2];
-                                                            }
-                                                            ?> </b> Questions</td>
-                                                            <td><b><?php echo $value[3]; ?> </b> Marks</td>
-                                                            <td><b><?php echo $value[4]; ?> </b> Questions</td>
+                                                            <td><?php echo $row['name']; ?></td>
+                                                            <td><?php echo $row['jamb']; ?></td>
+                                                            <td><?php echo $row['chemistry']; ?></td>
+                                                            <td><?php echo $row['english']; ?></td>
+                                                            <td><?php echo $row['physics']; ?></td>
+                                                            <td><?php echo $row['biology']; ?></td>
+                                                            <td><?php echo $row['total']; ?></td>
                                                     </tr>
                                                     <?php
                                                 }
